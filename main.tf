@@ -1,9 +1,21 @@
-resource "aws_vpc" "myprod-vpc" {
-  cidr_block           = "192.168.0.0/16"
+resource "aws_vpc" "prod-vpc" {
+  cidr_block           = var.prod_vpc_cidr
   enable_dns_hostnames = true
   tags = {
-    name = "prod-vpc"
-  }
+    name = var.prod_vpc_name
 
+  }
 }
+
+resource "aws_vpc" "Dev-vpc" {
+  cidr_block           = var.dev_vpc_cidr
+  enable_dns_hostnames = true
+  tags = {
+    name = var.dev_vpc_name
+
+  }
+}
+
+
+
 
